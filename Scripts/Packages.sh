@@ -145,5 +145,10 @@ argon_css_file=$(find ./luci-theme-argon/ -type f -name "cascade.css")
 sed -i "/^.main .main-left .nav li a {/,/^}/ { /font-weight: bolder/d }" $argon_css_file
 sed -i '/^\[data-page="admin-system-opkg"\] #maincontent>.container {/,/}/ s/font-weight: 600;/font-weight: normal;/' $argon_css_file
 
+# 添加自定义软件
+git clone --depth=1  https://github.com/kenzok8/openwrt-packages kenzok8
+rm -rf ../feeds/packages/net/{alist,adguardhome,mosdns,xray*,v2ray*,v2ray*,sing*,smartdns,geoview}
+rm -rf ../feeds/packages/utils/v2dat
+
 # adguardhome
 bash $GITHUB_WORKSPACE/patches/preset-adguardhome.sh
