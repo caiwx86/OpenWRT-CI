@@ -144,3 +144,6 @@ argon_css_file=$(find ./luci-theme-argon/ -type f -name "cascade.css")
 #修改字体
 sed -i "/^.main .main-left .nav li a {/,/^}/ { /font-weight: bolder/d }" $argon_css_file
 sed -i '/^\[data-page="admin-system-opkg"\] #maincontent>.container {/,/}/ s/font-weight: 600;/font-weight: normal;/' $argon_css_file
+
+# adguardhome
+bash $GITHUB_WORKSPACE/patches/preset-adguardhome.sh
